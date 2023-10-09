@@ -1,0 +1,18 @@
+apiVersion: repository.herbergt.io/v1alpha1
+kind: Repository
+metadata:
+  annotations:
+    meta.upbound.io/example-id: repository/v1alpha1/repository
+  labels:
+    testing.upbound.io/example-name: example
+  name: example
+spec:
+  forProvider:
+    description: My awesome codebase
+    template:
+    - owner: github
+      repository: terraform-module-template
+    visibility: public
+
+---
+
