@@ -7,10 +7,9 @@ package config
 import (
 	// Note(turkenh): we are importing this to embed provider schema document
 	_ "embed"
-
+	"github.com/herbergt/provider-github/config/branch"
+	"github.com/herbergt/provider-github/config/repository"
 	ujconfig "github.com/upbound/upjet/pkg/config"
-
-	"github.com/herbergt/provider-github/config/null"
 )
 
 const (
@@ -36,7 +35,8 @@ func GetProvider() *ujconfig.Provider {
 
 	for _, configure := range []func(provider *ujconfig.Provider){
 		// add custom config functions
-		null.Configure,
+		repository.Configure,
+		branch.Configure,
 	} {
 		configure(pc)
 	}
